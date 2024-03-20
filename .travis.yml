@@ -22,17 +22,17 @@ jobs:
     - stage: tag
       script:
         # Tag Docker images
-        - docker tag udagram-api-feed hungvm1/udagram-api-feed:1.0.0
-        - docker tag udagram-api-user hungvm1/udagram-api-user:1.0.0
-        - docker tag udagram-frontend hungvm1/udagram-frontend:1.0.0
-        - docker tag udagram-reverseproxy hungvm1/udagram-reverseproxy:1.0.0
+        - docker tag udagram-api-feed:latest hungvm1/udagram-api-feed:v1
+        - docker tag udagram-api-user:latest hungvm1/udagram-api-user:v1
+        - docker tag udagram-frontend:latest hungvm1/udagram-frontend:v1
+        - docker tag udagram-reverseproxy:latest hungvm1/udagram-reverseproxy:v1
 
 after_success:
   # Login to Docker Hub
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
-  # Push Docker images to Docker Hub with tag 1.0.0
-  - docker push hungvm1/udagram-api-feed:1.0.0
-  - docker push hungvm1/udagram-api-user:1.0.0
-  - docker push hungvm1/udagram-frontend:1.0.0
-  - docker push hungvm1/udagram-reverseproxy:1.0.0
+  # Push Docker images to Docker Hub with tag v1
+  - docker push hungvm1/udagram-api-feed:v1
+  - docker push hungvm1/udagram-api-user:v1
+  - docker push hungvm1/udagram-frontend:v1
+  - docker push hungvm1/udagram-reverseproxy:v1
