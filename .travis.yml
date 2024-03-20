@@ -19,6 +19,12 @@ jobs:
         - docker build -t udagram-frontend ./udagram-frontend
         - docker build -t udagram-reverseproxy ./udagram-reverseproxy
 
+        # Tag Docker images as latest
+        - docker tag udagram-api-feed udagram-api-feed:latest
+        - docker tag udagram-api-user udagram-api-user:latest
+        - docker tag udagram-frontend udagram-frontend:latest
+        - docker tag udagram-reverseproxy udagram-reverseproxy:latest
+
     - stage: tag
       script:
         # Tag Docker images
