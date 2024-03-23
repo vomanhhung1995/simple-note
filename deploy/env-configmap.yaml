@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: env-configmap
+data:
+  POSTGRES_HOST: database-v139-project03.ctk2zalctmyd.us-west-2.rds.amazonaws.com
+  POSTGRES_DB: postgres
+  AWS_BUCKET: project3-269483980255-dev
+  AWS_REGION: us-west-2
+  AWS_PROFILE: default
+  JWT_SECRET: fpt
+  URL: http://localhost:8100
